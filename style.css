@@ -80,10 +80,15 @@ body{
 }
 
 
-.app {
-  background: transparent;
-  min-height: 100vh;
+* { box-sizing: border-box; }
+
+.app{
+  width: 100%;
+  max-width: none;        /* важно: убрать ограничения */
+  margin: 0;              /* убрать центровку */
+  min-height: 100dvh;
 }
+
 
 .topbar{
   position: sticky;
