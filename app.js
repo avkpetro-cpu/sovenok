@@ -353,6 +353,8 @@ function setupNav() {
   // hash routing
   const initial = (location.hash || "#home").replace("#", "");
   showScreen(initial, false);
+  showScreen("home");
+
 }
 
 function applyTelegramTheme() {
