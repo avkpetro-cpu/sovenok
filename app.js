@@ -5,12 +5,8 @@ const FORCE_LIGHT_HEADER = "#FFFFFF";
 
 if (tg) {
   tg.ready();
-
-  // Важно: эти методы меняют фон "оболочки" Telegram
-  tg.setBackgroundColor(FORCE_LIGHT_BG);
-  tg.setHeaderColor(FORCE_LIGHT_HEADER);
-
-  // На iOS иногда помогает расширить
+  tg.setBackgroundColor("#F7F8FC");
+  tg.setHeaderColor("#FFFFFF");
   tg.expand();
 }
 
