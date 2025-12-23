@@ -1,0 +1,320 @@
+:root{
+  --tg-bg: #f6f6f6;
+  --tg-text: #1f2328;
+  --tg-hint: #6b7280;
+  --tg-btn: #2ea6ff;
+  --tg-btn-text: #ffffff;
+
+  --card: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  --r: 16px;
+}
+
+*{ box-sizing:border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body{ margin:0; background:var(--tg-bg); color:var(--tg-text); }
+
+.app{
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--tg-bg);
+  display:flex;
+  flex-direction:column;
+}
+
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 12px 12px;
+}
+
+.iconBtn{
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 12px;
+  height: 40px;
+  min-width: 40px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.topbar__title{ flex:1; min-width: 0; }
+.appName{ font-weight: 700; font-size: 16px; line-height: 1.1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.appSubtitle{ font-size: 12px; color: var(--tg-hint); margin-top: 2px; }
+
+.main{
+  padding: 14px 14px 90px;
+}
+
+.screen{ display:none; }
+.screen.active{ display:block; }
+
+.hero{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+
+.hero__logo{
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.hero__text h1{ margin:0; font-size: 18px; }
+.muted{ color: var(--tg-hint); }
+.hint{ font-size: 12px; margin-top: 6px; }
+
+.grid{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.card{
+  text-align:left;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  cursor:pointer;
+}
+
+.card__title{ font-weight: 700; }
+.card__desc{ margin-top: 4px; font-size: 12px; }
+
+.ctaRow{ margin-top: 12px; }
+
+.cta{
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--tg-btn);
+  color: var(--tg-btn-text);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration:none;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.cta.secondary{
+  background: #fff;
+  color: var(--tg-text);
+  border: 1px solid var(--border);
+  margin-top: 10px;
+}
+
+.block{
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+
+.stack > * { margin-top: 10px; }
+.stack > *:first-child { margin-top: 0; }
+
+.list{ margin: 8px 0 0; padding-left: 18px; }
+
+.cardBlock__title{ font-weight: 800; margin-bottom: 6px; }
+
+.price{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.price__title{ font-weight: 800; }
+.price__value{ font-weight: 800; white-space:nowrap; }
+
+.faq summary{
+  cursor:pointer;
+  font-weight: 800;
+}
+.faq > div{ margin-top: 8px; }
+
+.contact__title{ font-weight: 800; margin-bottom: 4px; }
+
+.gallery{
+  margin-top: 12px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.photo{
+  width:100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.bottombar{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(520px, 100%);
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display:flex;
+  gap: 8px;
+  padding: 10px;
+}
+
+.tab{
+  flex:1;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 10px;
+  cursor:pointer;
+  font-weight: 700;
+}
+
+.tab.active{
+  background: rgba(46,166,255,0.12);
+  border-color: rgba(46,166,255,0.35);
+}
+
+.toast{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  bottom: 90px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 999px;
+  opacity: 0;
+  transition: 0.2s;
+  font-size: 13px;
+  pointer-events:none;
+}
+
+.toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0px);
+}
+
+.viewer{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  z-index: 999;
+}
+
+.viewer img{
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 16px;
+}
+/* Modal */
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 1000;
+}
+
+.modal.open{ display:block; }
+
+.modal__backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.45);
+}
+
+.modal__sheet{
+  position:absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(520px, 100%);
+  background: var(--card);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 12px 12px 16px;
+}
+
+.modal__header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 6px 2px 10px;
+}
+
+.modal__title{ font-weight: 900; font-size: 16px; }
+.modal__subtitle{ font-size: 12px; margin-top: 2px; }
+
+.form{ display:flex; flex-direction:column; gap: 10px; }
+.field__label{ font-weight: 800; font-size: 12px; margin-bottom: 6px; }
+
+.input{
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 12px;
+  outline: none;
+  background: #fff;
+  color: var(--tg-text);
+}
+
+.input:focus{
+  border-color: rgba(46,166,255,0.5);
+}
+
+.textarea{
+  min-height: 90px;
+  resize: vertical;
+}
+
+.scheduleRow{
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+}
+
+.scheduleTime{
+  font-weight: 900;
+  min-width: 92px;
+  white-space: nowrap;
+}
+
+.scheduleTitle{
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.teamName{
+  font-weight: 900;
+  font-size: 14px;
+}

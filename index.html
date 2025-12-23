@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Детский сад</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Telegram WebApp -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <button id="backBtn" class="iconBtn" aria-label="Назад">←</button>
+      <div class="topbar__title">
+        <div id="appName" class="appName">Детский сад</div>
+        <div id="appSubtitle" class="appSubtitle">Mini App — v2</div>
+      </div>
+      <button id="shareBtn" class="iconBtn" aria-label="Поделиться">⤴</button>
+    </header>
+
+    <main class="main">
+      <!-- HOME -->
+      <section class="screen" id="home">
+        <div class="hero">
+          <img class="hero__logo" src="assets/logo.png" alt="Логотип" />
+          <div class="hero__text">
+            <h1 id="heroTitle">Детский сад</h1>
+            <p id="heroDesc" class="muted">
+              Тёплая атмосфера, забота и развитие каждый день.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <button class="card" data-nav="about">
+            <div class="card__title">О нас</div>
+            <div class="card__desc muted">Команда, подход, безопасность</div>
+          </button>
+
+          <button class="card" data-nav="programs">
+            <div class="card__title">Программы</div>
+            <div class="card__desc muted">Возрастные группы и занятия</div>
+          </button>
+
+          <button class="card" data-nav="schedule">
+            <div class="card__title">Расписание</div>
+            <div class="card__desc muted">Как проходит день</div>
+          </button>
+
+          <button class="card" data-nav="team">
+            <div class="card__title">Команда</div>
+            <div class="card__desc muted">Воспитатели и педагоги</div>
+          </button>
+
+
+          <button class="card" data-nav="pricing">
+            <div class="card__title">Цены</div>
+            <div class="card__desc muted">Абонементы и условия</div>
+          </button>
+
+          <button class="card" data-nav="gallery">
+            <div class="card__title">Фото</div>
+            <div class="card__desc muted">Интерьер и занятия</div>
+          </button>
+
+          <button class="card" data-nav="faq">
+            <div class="card__title">FAQ</div>
+            <div class="card__desc muted">Частые вопросы</div>
+          </button>
+
+          <button class="card" data-nav="contacts">
+            <div class="card__title">Контакты</div>
+            <div class="card__desc muted">Адреса и связь</div>
+          </button>
+        </div>
+
+        <div class="ctaRow">
+          <button id="primaryCta" class="cta">Записаться на экскурсию</button>
+          <div id="ctaHint" class="hint muted">Откроется чат в Telegram</div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="screen" id="about">
+        <h2>О нас</h2>
+        <div id="aboutText" class="block muted"></div>
+
+        <div class="block">
+          <h3>Почему родители выбирают нас</h3>
+          <ul id="benefitsList" class="list"></ul>
+        </div>
+      </section>
+
+      <!-- PROGRAMS -->
+      <section class="screen" id="programs">
+        <h2>Программы</h2>
+        <div id="programsList" class="stack"></div>
+      </section>
+
+            <!-- SCHEDULE -->
+      <section class="screen" id="schedule">
+        <h2>Расписание дня</h2>
+        <div id="scheduleList" class="stack"></div>
+      </section>
+
+
+      <!-- PRICING -->
+      <section class="screen" id="pricing">
+        <h2>Цены</h2>
+        <div id="pricingList" class="stack"></div>
+        <div id="pricingNote" class="hint muted"></div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="screen" id="gallery">
+        <h2>Фото</h2>
+        <div id="galleryGrid" class="gallery"></div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="screen" id="faq">
+        <h2>FAQ</h2>
+        <div id="faqList" class="stack"></div>
+      </section>
+
+            <!-- TEAM -->
+      <section class="screen" id="team">
+        <h2>Команда</h2>
+        <div id="teamList" class="stack"></div>
+      </section>
+
+
+      <!-- CONTACTS -->
+      <section class="screen" id="contacts">
+        <h2>Контакты</h2>
+        <div id="contactsList" class="stack"></div>
+
+        <div class="ctaRow">
+          <a id="tgLink" class="cta" href="#" target="_blank" rel="noopener">Написать в Telegram</a>
+          <button id="callBtn" class="cta secondary">Позвонить</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottombar">
+      <button class="tab" data-nav="home">Главная</button>
+      <button class="tab" data-nav="programs">Программы</button>
+      <button class="tab" data-nav="gallery">Фото</button>
+      <button class="tab" data-nav="contacts">Контакты</button>
+    </nav>
+  </div>
+  
+    <!-- Lead form modal -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="1"></div>
+
+    <div class="modal__sheet" role="dialog" aria-modal="true" aria-label="Форма заявки">
+      <div class="modal__header">
+        <div>
+          <div id="modalTitle" class="modal__title">Запись</div>
+          <div id="modalSubtitle" class="modal__subtitle muted">Оставьте контакты</div>
+        </div>
+        <button class="iconBtn" id="modalClose" aria-label="Закрыть">✕</button>
+      </div>
+
+      <form id="leadForm" class="form">
+        <label class="field">
+          <div class="field__label" id="fNameLabel">Имя</div>
+          <input id="fName" class="input" placeholder="Например, Анна" autocomplete="name" />
+        </label>
+
+        <label class="field">
+          <div class="field__label" id="fAgeLabel">Возраст ребёнка</div>
+          <input id="fAge" class="input" placeholder="Например, 3 года" />
+        </label>
+
+        <label class="field">
+          <div class="field__label" id="fTimeLabel">Удобное время</div>
+          <select id="fTime" class="input"></select>
+        </label>
+
+        <label class="field">
+          <div class="field__label" id="fNoteLabel">Комментарий</div>
+          <textarea id="fNote" class="input textarea" placeholder="Например, интересует группа 3–4"></textarea>
+        </label>
+
+        <button id="sendLeadBtn" type="submit" class="cta">Отправить</button>
+        <button id="cancelLeadBtn" type="button" class="cta secondary">Отмена</button>
+      </form>
+    </div>
+  </div>
+
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
