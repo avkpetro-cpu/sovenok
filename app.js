@@ -39,8 +39,9 @@ function closeModal() {
 
 function setAppTexts() {
   document.title = C.name;
-  el("appName").textContent = C.name;
-  el("appSubtitle").textContent = C.subtitle || "";
+  if (el("appTitle")) el("appTitle").textContent = C.name || "";
+  if (el("appSubtitle")) el("appSubtitle").textContent = C.subtitle || "";
+
 
   el("heroTitle").textContent = C.hero?.title || C.name;
   el("heroDesc").textContent = C.hero?.desc || "";
