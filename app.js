@@ -1,4 +1,16 @@
 const tg = window.Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+
+  // Говорим Telegram, что фон светлый
+  tg.setBackgroundColor("#F7F8FC");
+  tg.setHeaderColor("#FFFFFF");
+
+  // На всякий случай отключаем "тёмный режим"
+  tg.expand();
+}
+
 if (tg) tg.ready();
 
 const C = window.APP_CONTENT;
