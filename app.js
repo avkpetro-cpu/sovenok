@@ -1,13 +1,16 @@
 const tg = window.Telegram?.WebApp;
 
+const FORCE_LIGHT_BG = "#F7F8FC";
+const FORCE_LIGHT_HEADER = "#FFFFFF";
+
 if (tg) {
   tg.ready();
 
-  // Говорим Telegram, что фон светлый
-  tg.setBackgroundColor("#F7F8FC");
-  tg.setHeaderColor("#FFFFFF");
+  // Важно: эти методы меняют фон "оболочки" Telegram
+  tg.setBackgroundColor(FORCE_LIGHT_BG);
+  tg.setHeaderColor(FORCE_LIGHT_HEADER);
 
-  // На всякий случай отключаем "тёмный режим"
+  // На iOS иногда помогает расширить
   tg.expand();
 }
 
@@ -356,17 +359,23 @@ function setupNav() {
 }
 
 function applyTelegramTheme() {
-  // Минимальная адаптация под тему Telegram
   const p = tg?.themeParams;
   if (!p) return;
 
   const root = document.documentElement;
-  if (p.bg_color) root.style.setProperty("--tg-bg", p.bg_color);
+
+  // Не используем p.bg_color, потому что он может быть чёрный
+  // и ты как раз хочешь всегда светлый фон.
+  root.style.setProperty("--tg-bg", FORCE_LIGHT_BG);
+
   if (p.text_color) root.style.setProperty("--tg-text", p.text_color);
   if (p.hint_color) root.style.setProperty("--tg-hint", p.hint_color);
-  if (p.button_color) root.style.setProperty("--tg-btn", p.button_color);
-  if (p.button_text_color) root.style.setProperty("--tg-btn-text", p.button_text_color);
+
+  // Кнопки можно оставить как есть или тоже зафиксировать
+  root.style.setProperty("--tg-btn", p.button_color || "#5B8DEF");
+  root.style.setProperty("--tg-btn-text", p.button_text_color || "#ffffff");
 }
+
 
 function toast(text) {
   const t = document.createElement("div");
