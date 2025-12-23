@@ -508,3 +508,4 @@ setAppTexts();
 render();
 setupNav();
 setupLeadForm();
+showScreen("home");
