@@ -465,3 +465,34 @@ body{
   font-weight: 900;
   cursor: pointer;
 }
+
+/* ===== Telegram iOS full-viewport fix ===== */
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;   /* важно: скролл будет внутри .viewport */
+}
+
+.viewport{
+  position: fixed;
+  inset: 0;           /* top/right/bottom/left = 0 */
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;   /* теперь скроллим тут */
+  -webkit-overflow-scrolling: touch;
+
+  /* фон приложения */
+  background:
+    var(--img-app-bg) center/cover no-repeat,
+    radial-gradient(900px 600px at 50% -100px, #EAF0FF 0%, transparent 60%),
+    linear-gradient(180deg, #F7F8FC 0%, #F3F6FD 100%);
+}
+
+.app{
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 100%;
+}
