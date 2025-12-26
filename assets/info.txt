@@ -1,0 +1,33 @@
+Обязательные (главный экран)
+
+assets/brand/logo.png — логотип “СОВЁНОК”
+
+assets/brand/mascot.png — совёнок (персонаж)
+
+assets/bg/app-bg.png — общий фон приложения (узоры/звёзды/флажки и т.п.)
+
+assets/bg/hero-bg.png — фон hero-блока (небо/облака/радуга)
+
+Декор (по желанию, но будет “вау”)
+
+assets/deco/sun.png
+
+assets/deco/rocket.png
+
+assets/deco/flags.png
+
+assets/deco/stars.png
+
+Постеры для разделов (как твои картинки)
+
+assets/posters/pricing.png
+
+assets/posters/programs.png
+
+assets/posters/schedule.png
+
+assets/posters/checklist.png
+
+assets/posters/docs.png
+
+(Если каких-то файлов нет — будет работать фолбэк-стиль, просто без картинки.)
