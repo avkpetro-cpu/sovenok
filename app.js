@@ -501,6 +501,47 @@ function submitLead() {
   el("fNote").value = "";
 }
 
+// ===== Universal click router (makes navigation work even if classes change) =====
+document.addEventListener("click", (e) => {
+  const el = e.target.closest("[data-nav],[data-screen],[data-open],[data-action]");
+  if (!el) return;
+
+  const target =
+    el.getAttribute("data-nav") ||
+    el.getAttribute("data-screen") ||
+    el.getAttribute("data-open") ||
+    el.getAttribute("data-action");
+
+  if (!target) return;
+
+  // 1) Screens navigation
+  const screens = new Set([
+    "home",
+    "about",
+    "programs",
+    "photos",
+    "gallery",
+    "prices",
+    "schedule",
+    "team",
+    "faq",
+    "contacts",
+  ]);
+
+  if (screens.has(target)) {
+    if (typeof showScreen === "function") showScreen(target);
+    return;
+  }
+
+  // 2) Open lead modal / form
+  if (target === "lead" || target === "leadForm" || target === "signup") {
+    if (typeof openLeadModal === "function") openLeadModal();
+    // если у тебя другая функция открытия формы — напиши, я подстрою
+    return;
+  }
+});
+
+
 
 // Init
 applyTelegramTheme();
